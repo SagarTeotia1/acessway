@@ -4,7 +4,7 @@ import 'package:acessway/Screen/AUTH/Choose_avtarScreen.dart';
 import 'package:acessway/Widgets/Splash/AppiconWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
+import 'package:animated_text_kit/animated_text_kit.dart'; // Import the animated_text_kit package
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -17,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    // Navigate to PreAuthScreen after 3 seconds
+    // Navigate to ChooseAvatarScreen after 2 seconds
     Future.delayed(Duration(seconds: 2), () {
       Get.off(() => ChooseAvatarScreen());
     });
@@ -43,7 +43,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   AppIconWidget(),
                   const SizedBox(height: 15),
                   Text(
-                    "HeritageSphere",
+                    "AccessWay",
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
@@ -51,21 +51,25 @@ class _SplashScreenState extends State<SplashScreen> {
                     ),
                   ),
                   const SizedBox(height: 25),
-                  Text(
-                    "Explore, Preserve, Empower",
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontFamily: itallicfont,
-                      color: darktheme
-                    ),
-                  ),
-                  const SizedBox(height: 5),
-                  Text(
-                    "– Virtually Anywhere",
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontFamily: itallicfont,
-                      color: darktheme
+                  // Animated Text using AnimatedTextKit
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.8, // Set width to avoid text overflow
+                    child: AnimatedTextKit(
+                      animatedTexts: [
+                        TypewriterAnimatedText(
+                          "Accessibility in Motion, Everywhere You Go",
+                          speed: const Duration(milliseconds: 100),
+                          textStyle: TextStyle(
+                            fontSize: 14,
+                            fontFamily: itallicfont,
+                            color: darktheme,
+                          ),
+                        ),
+                      ],
+                      isRepeatingAnimation: false, // Set to false to show the animation once
+                      onFinished: () {
+                        // Optionally do something when the animation finishes
+                      },
                     ),
                   ),
                 ],

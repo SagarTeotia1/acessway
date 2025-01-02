@@ -1,5 +1,8 @@
 import 'package:acessway/Const/const_colo.dart';
+import 'package:acessway/Widgets/HomePage/SearchItemScreen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 Widget feedeventCardNearby(String query) {
   return SingleChildScrollView(
@@ -7,7 +10,7 @@ Widget feedeventCardNearby(String query) {
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-          locationCard(
+        locationCard(
           title: "$query SuperMarket",
           imagePath: 'assets/images/SuperMarket.jpg',
           rating: 4.8,
@@ -16,7 +19,7 @@ Widget feedeventCardNearby(String query) {
           address: "Vasantkunj, 110045, India",
           phoneNumber: "+91 928-638-7888",
           hours: "24 Hours",
-          onTap: () => print("Card tapped: Grand Canyon"),
+          onTap: () => Get.off(() => VirtualTourScreen()),
         ),
         
         const SizedBox(height: 20),
@@ -29,7 +32,7 @@ Widget feedeventCardNearby(String query) {
           address: "Agra, Uttar Pradesh, India",
           phoneNumber: "+91 123 456 7890",
           hours: "9:00 AM - 5:00 PM",
-          onTap: () => print("Card tapped: Taj Mahal"),
+          onTap: () => Get.off(() => VirtualTourScreen()),
         ),
         const SizedBox(height: 20),
         locationCard(
@@ -41,7 +44,7 @@ Widget feedeventCardNearby(String query) {
           address: "Greater Kailash, 110023, India",
           phoneNumber: "+91 123 45 67 89",
           hours: "9:00 AM - 11:00 PM",
-          onTap: () => print("Card tapped: Eiffel Tower"),
+          onTap: () => Get.off(() => VirtualTourScreen()),
         ),
         const SizedBox(height: 20),
         locationCard(
@@ -53,7 +56,7 @@ Widget feedeventCardNearby(String query) {
           address: "Kalindi Kunj, 11002, India",
           phoneNumber: "+91 202 357 7890",
           hours: "8:00 AM - 6:00 PM",
-          onTap: () => print("Card tapped: Great Pyramid of Giza"),
+          onTap: () => Get.off(() => VirtualTourScreen()),
         ),
         const SizedBox(height: 20),
         locationCard(
@@ -65,7 +68,7 @@ Widget feedeventCardNearby(String query) {
           address: "Vasantkunj, 110045, India",
           phoneNumber: "+91 928-638-7888",
           hours: "24 Hours",
-          onTap: () => print("Card tapped: Grand Canyon"),
+          onTap: () => Get.off(() => VirtualTourScreen()),
         ),
         const SizedBox(height: 20),
       ],

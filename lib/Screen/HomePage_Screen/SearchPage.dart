@@ -24,6 +24,11 @@ class SearchResultsPage extends StatelessWidget {
           },
         ),
         title: Text('$query'),
+        actions: [
+        
+          Icon(Icons.search, color: Colors.black),
+          SizedBox(height: 20,),
+        ],
       ),
       body: SingleChildScrollView(
         child: Center(

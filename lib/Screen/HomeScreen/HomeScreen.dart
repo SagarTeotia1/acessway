@@ -2,6 +2,7 @@ import 'package:acessway/Const/const_colo.dart';
 import 'package:acessway/Screen/AIguide/GuideScreen.dart';
 import 'package:acessway/Screen/HomePage_Screen/HomePage_Screen.dart';
 import 'package:acessway/Screen/Profile/ProfileScreen.dart';
+import 'package:acessway/Screen/Social/Social_Screen.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 class HomeScreen extends StatefulWidget {
@@ -15,10 +16,8 @@ class _HomeScreenState extends State<HomeScreen> {
   // Define a list of widgets (pages) to show based on the index
   final List<Widget> _pages = [
     HomepageScreen(),
-     Container(
-      color: Colors.blue,
-    ),
-     GuideScreen(),
+    SocialScreen(),
+    GuideScreen(),
     ProfileScreen(),
   ];
 

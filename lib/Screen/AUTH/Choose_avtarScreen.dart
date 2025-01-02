@@ -54,7 +54,7 @@ class _ChooseAvatarScreenState extends State<ChooseAvatarScreen> {
                 children: [
                   SizedBox(height: 50),
                   const Text(
-                    'Choose Your Avatar',
+                    'Choose Your Guide',
                     style: TextStyle(
                       fontSize: 26,
                       fontFamily: itallicfont,
