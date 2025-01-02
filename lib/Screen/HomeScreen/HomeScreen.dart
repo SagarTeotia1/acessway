@@ -1,6 +1,7 @@
 import 'package:acessway/Const/const_colo.dart';
 import 'package:acessway/Screen/AIguide/GuideScreen.dart';
 import 'package:acessway/Screen/HomePage_Screen/HomePage_Screen.dart';
+import 'package:acessway/Screen/Profile/ProfileScreen.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 class HomeScreen extends StatefulWidget {
@@ -18,13 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
       color: Colors.blue,
     ),
      GuideScreen(),
-     Container(
-      color: Colors.blue,
-    ),
-     Container(
-      color: Colors.blue,
-    ),
-    
+    ProfileScreen(),
   ];
 
   // Initially set to 0, meaning the first page will be shown
@@ -34,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
     {'icon': Icons.explore_rounded, 'label': 'Explore'},
     {'icon': Icons.groups, 'label': 'Social'},
     {'icon': Icons.accessibility, 'label': 'AI Guide '},
-    {'icon': Icons.date_range, 'label': 'Event'},
+    
     {'icon': Icons.person, 'label': 'You'},
   ];
 
