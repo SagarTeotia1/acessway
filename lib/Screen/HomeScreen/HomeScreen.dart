@@ -29,15 +29,14 @@ class _HomeScreenState extends State<HomeScreen> {
     {'icon': Icons.explore_rounded, 'label': 'Explore'},
     {'icon': Icons.groups, 'label': 'Social'},
     {'icon': Icons.accessibility, 'label': 'AI Guide '},
-    
     {'icon': Icons.person, 'label': 'You'},
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: homeBg, // Use your color constant for the background
-      body: _pages[_currentIndex], // Display the current page based on the selected index
+      backgroundColor: homeBg, 
+      body: _pages[_currentIndex], 
       bottomNavigationBar: CurvedNavigationBar(
         items: _navigationItems
             .map(
@@ -45,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Icon(item['icon'], color: Colors.black),
-                  const SizedBox(height: 4), // Spacing between icon and label
+                  const SizedBox(height: 4), 
                   Text(
                     item['label'],
                     style: TextStyle(
@@ -57,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             )
             .toList(),
-        backgroundColor: homeBg, // Make the background transparent
+        backgroundColor: homeBg, 
         color: Colors.white, // Color of the navigation bar
         buttonBackgroundColor:
             const Color.fromARGB(255, 247, 247, 247), // Central icon button background
