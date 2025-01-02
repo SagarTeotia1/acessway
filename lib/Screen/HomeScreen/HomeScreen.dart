@@ -1,4 +1,5 @@
 import 'package:acessway/Const/const_colo.dart';
+import 'package:acessway/Screen/HomePage_Screen/HomePage_Screen.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 class HomeScreen extends StatefulWidget {
@@ -11,9 +12,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   // Define a list of widgets (pages) to show based on the index
   final List<Widget> _pages = [
-    Container(
-      color: Colors.blue,
-    ),
+    HomepageScreen(),
      Container(
       color: Colors.blue,
     ),
@@ -36,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
     {'icon': Icons.explore_rounded, 'label': 'Explore'},
     {'icon': Icons.groups, 'label': 'Social'},
     {'icon': Icons.accessibility, 'label': 'AI Guide '},
-    {'icon': Icons.date_range, 'label': 'Store'},
+    {'icon': Icons.date_range, 'label': 'Event'},
     {'icon': Icons.person, 'label': 'You'},
   ];
 
