@@ -17,8 +17,8 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    // Navigate to ChooseAvatarScreen after 2 seconds
-    Future.delayed(Duration(seconds: 2), () {
+    // Navigate to ChooseAvatarScreen after 5 seconds
+    Future.delayed(Duration(seconds: 5), () {
       Get.off(() => ChooseAvatarScreen());
     });
   }
@@ -39,6 +39,7 @@ class _SplashScreenState extends State<SplashScreen> {
             child: SingleChildScrollView(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center, // Align children horizontally in the center
                 children: [
                   AppIconWidget(),
                   const SizedBox(height: 15),
@@ -60,7 +61,7 @@ class _SplashScreenState extends State<SplashScreen> {
                           "Accessibility in Motion, Everywhere You Go",
                           speed: const Duration(milliseconds: 100),
                           textStyle: TextStyle(
-                            fontSize: 14,
+                            fontSize: 24,
                             fontFamily: itallicfont,
                             color: darktheme,
                           ),
