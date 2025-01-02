@@ -1,4 +1,5 @@
 import 'package:acessway/Const/const_colo.dart';
+import 'package:acessway/Screen/AIguide/GuideScreen.dart';
 import 'package:acessway/Screen/HomePage_Screen/HomePage_Screen.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
@@ -16,9 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
      Container(
       color: Colors.blue,
     ),
-     Container(
-      color: Colors.blue,
-    ),
+     GuideScreen(),
      Container(
       color: Colors.blue,
     ),
