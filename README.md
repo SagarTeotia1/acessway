@@ -1,5 +1,6 @@
 # AccessWay  
-![alt text](<WhatsApp Image 2025-01-15 at 02.48.22_f65e48b4.jpg>)
+![WhatsApp Image 2025-01-15 at 02 48 22_a436b0af](https://github.com/user-attachments/assets/88747089-2c12-4492-831b-8dc1f69eee06)
+
 **"Accessibility in Motion, Everywhere You Go"**  
 
 AccessWay is an AI-powered platform combining AR, AI, and crowdsourced data to provide accessible navigation, social connections, and emergency tools for people with disabilities. It promotes independence, fosters inclusion, and encourages businesses to adopt accessible practices, creating a barrier-free and equitable world.
