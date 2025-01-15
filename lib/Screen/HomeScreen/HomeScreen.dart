@@ -26,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final List<Map<String, dynamic>> _navigationItems = [
     {'icon': Icons.explore_rounded, 'label': 'Explore'},
-    {'icon': Icons.groups, 'label': 'Social'},
+    {'icon': Icons.groups, 'label': 'Review'},
     {'icon': Icons.accessibility, 'label': 'AI Guide '},
     {'icon': Icons.person, 'label': 'You'},
   ];

@@ -56,7 +56,7 @@ class VirtualTourScreen extends StatelessWidget {
             children: [
               Positioned.fill(
                 child: Image.asset(
-                  'assets/images/SuperMarket.jpg', // Assuming you have an image for supermarket
+                  'assets/images/4.jpg', // Assuming you have an image for supermarket
                   fit: BoxFit.cover,
                 ),
               ),
@@ -145,30 +145,31 @@ class VirtualTourScreen extends StatelessWidget {
   }
 
   Widget _buildBottomNavigationBar() {
-    return BottomAppBar(
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: ElevatedButton.icon(
-          onPressed: _startARNavigation,
-          icon: const Icon(
-            Icons.view_in_ar,
-            color: Colors.white,
+  return BottomAppBar(
+    color: Colors.white, // Set background color to white
+    child: Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: ElevatedButton.icon(
+        onPressed: _startARNavigation,
+        icon: const Icon(
+          Icons.view_in_ar,
+          color: Colors.white,
+        ),
+        label: const Text(
+          'Start AR Navigation',
+          style: TextStyle(color: Colors.white),
+        ),
+        style: ElevatedButton.styleFrom(
+          backgroundColor: homeBg,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
           ),
-          label: const Text(
-            'Start AR Navigation',
-            style: TextStyle(color: Colors.white),
-          ),
-          style: ElevatedButton.styleFrom(
-            backgroundColor: homeBg,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
-            ),
-            minimumSize: const Size(double.infinity, 50),
-          ),
+          minimumSize: const Size(double.infinity, 50),
         ),
       ),
-    );
-  }
+    ),
+  );
+}
 
   Future<void> _startARNavigation() async {
     const arUrl = 'https://ar-navigation.example.com';

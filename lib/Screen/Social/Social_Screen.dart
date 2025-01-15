@@ -1,6 +1,8 @@
 import 'package:acessway/Const/const_colo.dart';
-import 'package:flutter/material.dart';
 import 'package:acessway/Widgets/Review/SocialScreenWidget.dart';
+import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+import 'dart:io'; // For using File class
 
 class SocialScreen extends StatefulWidget {
   const SocialScreen({super.key});
@@ -10,38 +12,125 @@ class SocialScreen extends StatefulWidget {
 }
 
 class _SocialScreenState extends State<SocialScreen> {
-  // Function to show a dialog for adding a post/review
+  // Controllers for the text fields
+  TextEditingController _postController = TextEditingController();
+  File? _imageFile; // Variable to store selected image
+  int _rating = 0; // Accessibility Rating state
+  
+  // Function to pick an image from the gallery or camera
+  Future<void> _pickImage() async {
+    final ImagePicker _picker = ImagePicker();
+    final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
+    
+    if (image != null) {
+      setState(() {
+        _imageFile = File(image.path); // Store the selected image
+      });
+    }
+  }
+
+  // Function to show the dialog for adding a post/review
   void _showAddPostDialog() {
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text('Add a Post'),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              // Text Field for writing a post or review
-              TextField(
-                decoration: InputDecoration(hintText: 'Enter your post here...'),
-                maxLines: 4,
-                keyboardType: TextInputType.text,
+          content: SingleChildScrollView( // Add scrolling for large content
+            child: Container(
+              width: 350,  // Increase the width of the dialog
+              padding: EdgeInsets.all(10),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // Text Field for writing a post or review
+                  TextField(
+                    controller: _postController,
+                    decoration: InputDecoration(hintText: 'Enter your post here...'),
+                    maxLines: 4,
+                    keyboardType: TextInputType.text,
+                  ),
+                  SizedBox(height: 10),
+                  
+                  // Image picker button
+                  ElevatedButton(
+                    onPressed: _pickImage,
+                    child: Text(_imageFile == null ? 'Pick an Image' : 'Change Image'),
+                    style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
+                  ),
+                  SizedBox(height: 10),
+                  
+                  // Show selected image preview
+                  _imageFile != null
+                      ? Image.file(
+                          _imageFile!,
+                          width: 100,
+                          height: 100,
+                          fit: BoxFit.cover,
+                        )
+                      : Container(),
+                  
+                  SizedBox(height: 10),
+                  
+                  // Accessibility Rating Widget
+Text('Accessibility Rating', style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
+
+Row(
+  mainAxisSize: MainAxisSize.min, // Reduces space by fitting content
+  children: List.generate(5, (index) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 4.0), // Reduce horizontal padding between numbers
+      child: InkWell(
+        onTap: () {
+          setState(() {
+            _rating = index + 1; // Update accessibility rating
+          });
+        },
+        child: Column(
+          children: [
+            Text(
+              '${index + 1}', // Show the rating number
+              style: TextStyle(
+                fontSize: 16, // Adjust number size
+                fontWeight: FontWeight.bold,
+                color: _rating > index ? Colors.green : Colors.grey, // Color based on the rating
               ),
-              SizedBox(height: 10),
-              ElevatedButton(
-                onPressed: () {
-                  // Handle the post submission here
-                  Navigator.pop(context);
-                  // You can add your logic to save the post here
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text('Post Submitted!')),
-                  );
-                },
-                child: Text('Add Post'),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: homeBg, // Custom background color for the button
-                ),
+            ),
+            Icon(
+              _rating > index ? Icons.star : Icons.star_border,
+              color: _rating > index ? Colors.green : Colors.grey,
+              size: 16,
+            ),
+          ],
+        ),
+      ),
+    );
+  }),
+),
+
+                  SizedBox(height: 10),
+                  
+                  // Submit Button
+                  ElevatedButton(
+                    onPressed: () {
+                      // Handle post submission here
+                      Navigator.pop(context);
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text('Post Submitted!')),
+                      );
+                      _postController.clear(); // Clear text after submitting
+                      setState(() {
+                        _imageFile = null; // Clear image after submitting
+                        _rating = 0; // Reset rating
+                      });
+                    },
+                    child: Text('Add Post'),
+                    style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
         );
       },
@@ -72,9 +161,9 @@ class _SocialScreenState extends State<SocialScreen> {
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: _showAddPostDialog,  // Show dialog to add a post or review
-        icon: Icon(Icons.add,color: Colors.white,),
-        label: Text('Create a Post',style: TextStyle(color: Colors.white),), // Text for the button
-        backgroundColor: homeBg,  // FAB color
+        icon: Icon(Icons.add, color: Colors.white),
+        label: Text('Create a Post', style: TextStyle(color: Colors.white)),
+        backgroundColor: color1,  // FAB color
         tooltip: 'Create a Post/Review',
       ),
     );

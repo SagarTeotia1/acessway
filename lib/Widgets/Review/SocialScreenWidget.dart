@@ -179,17 +179,27 @@ class _ReviewCardState extends State<ReviewCard> {
                       ],
                     ),
                     SizedBox(height: 6),
-                    // Accessibility Rating (Stars)
+                    // Accessibility Rating (Stars) - Below Distance
                     Row(
-                      children: List.generate(5, (index) {
-                        return Icon(
-                          index < widget.accessibilityRating
-                              ? Icons.star
-                              : Icons.star_border,  // Filled star or empty star
-                          color: Colors.amber,
+                      children: [
+                        Icon(
+                          Icons.accessible_forward,
+                          color: Colors.green,  // Accessibility icon color
                           size: 20,
-                        );
-                      }),
+                        ),
+                        SizedBox(width: 5),
+                        Row(
+                          children: List.generate(5, (index) {
+                            return Icon(
+                              index < widget.accessibilityRating
+                                  ? Icons.star
+                                  : Icons.star_border,  // Filled star or empty star
+                              color: Colors.green,  // Set the star color to green
+                              size: 20,
+                            );
+                          }),
+                        ),
+                      ],
                     ),
                   ],
                 ),

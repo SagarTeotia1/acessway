@@ -1,6 +1,9 @@
 import 'package:acessway/Const/const_colo.dart';
 import 'package:acessway/Const/const_img.dart';
+import 'package:acessway/Widgets/CreatePost.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -84,6 +87,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
           },
         ),
       ),
+floatingActionButton: FloatingActionButton.extended(
+        onPressed: (){
+          Get.off(()=>CreateReviewPage());
+        },  // Show dialog to add a post or review
+        icon: Icon(Icons.add, color: Colors.white),
+        label: Text('Create a Post', style: TextStyle(color: Colors.white)),
+        backgroundColor: color1,  // FAB color
+        tooltip: 'Create a Post/Review',
+      ),
     );
   }
 
@@ -156,13 +168,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       value:
                           ecoIncentiveProgress, // Adjust the progress value here
                       backgroundColor: Colors.grey[300],
-                      valueColor: const AlwaysStoppedAnimation<Color>(
-                          Color(0xFF4B5945)),
+                      valueColor: const AlwaysStoppedAnimation<Color>(Color(0xFF4B5945)),
                       strokeWidth: 6.0,
                     ),
                     const Icon(
-                      Icons
-                          .accessibility_new, // Icon representing accessibility
+                      Icons.accessibility_new, // Icon representing accessibility
                       color: Color(0xFF4B5945),
                       size: 20,
                     ),

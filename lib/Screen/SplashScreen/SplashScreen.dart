@@ -48,7 +48,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
-                      fontFamily: regularfont,
+                      fontFamily: boldfont,
                     ),
                   ),
                   const SizedBox(height: 25),
@@ -62,7 +62,7 @@ class _SplashScreenState extends State<SplashScreen> {
                           speed: const Duration(milliseconds: 100),
                           textStyle: TextStyle(
                             fontSize: 24,
-                            fontFamily: itallicfont,
+                            fontFamily: semiboldfont,
                             color: darktheme,
                           ),
                         ),
